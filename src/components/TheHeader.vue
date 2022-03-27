@@ -15,7 +15,7 @@
     <div id="header-links">
       <router-link to="/"><a>CRUD Form</a></router-link>
       <router-link to="/roomCode"><a>Get Room Code</a></router-link>    
-      <a href="https://github.com/bradishungry/golang-server-frontend/tree/development">
+      <a href="https://github.com/bradishungry/golang-server-frontend/">
       Check out the code!
       </a>
     </div>
