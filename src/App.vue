@@ -4,7 +4,6 @@ import CrudForm from "@/components/CrudForm.vue";
 import RwvHeader from "@/components/TheHeader.vue";
 </script>
 
-   
 <template>
   <div id="app">
     <RwvHeader />
@@ -18,7 +17,6 @@ import RwvHeader from "@/components/TheHeader.vue";
 #app {
   font-weight: normal;
 }
-
 
 .logo {
   display: block;
@@ -37,6 +35,4 @@ a,
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
-
-
 </style>

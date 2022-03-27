@@ -1,6 +1,5 @@
 <template>
   <nav class="navbar navbar-light">
-    
     <div class="header-row">
       <div id="hamburger" @click="toggleMenu()">
         <a href="javascript:void(0);" class="icon">
@@ -14,9 +13,9 @@
     </div>
     <div id="header-links">
       <router-link to="/"><a>CRUD Form</a></router-link>
-      <router-link to="/roomCode"><a>Get Room Code</a></router-link>    
+      <router-link to="/roomCode"><a>Get Room Code</a></router-link>
       <a href="https://github.com/bradishungry/golang-server-frontend/">
-      Check out the code!
+        Check out the code!
       </a>
     </div>
   </nav>
@@ -27,7 +26,7 @@ nav {
   background-color: blue;
 }
 
-#header-links{
+#header-links {
   text-align: center;
 }
 
@@ -92,4 +91,4 @@ export default {
     },
   },
 };
-</script> 
+</script>

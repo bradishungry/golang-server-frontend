@@ -34,9 +34,9 @@ export default {
 
 <template>
   <div class="roomcode-div">
-      <h2>Room Code:</h2>
-      <h2 id="roomCode">{{ roomcode }}</h2>
-    </div>
+    <h2>Room Code:</h2>
+    <h2 id="roomCode">{{ roomcode }}</h2>
+  </div>
 </template>
 
 <style scoped>
@@ -54,7 +54,6 @@ h3 {
 .greetings h3 {
   text-align: center;
 }
-
 
 @media (min-width: 1024px) {
   .greetings h1,

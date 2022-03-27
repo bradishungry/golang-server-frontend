@@ -7,23 +7,22 @@ export default {
     return {
       loading: false,
       roomcode: "",
-      people: []
+      people: [],
     };
   },
   created() {
     this.getPeople();
   },
   methods: {
-    validateForm(f){
-    },
-    resetFields(){
+    validateForm(f) {},
+    resetFields() {
       document.getElementById("edit-person").style.display = "none";
       document.getElementById("edit-id-field").value = "";
       document.getElementById("edit-name-field").value = "";
       document.getElementById("edit-age-field").value = "";
       document.getElementById("edit-email-field").value = "";
     },
-    setEditFields(person){
+    setEditFields(person) {
       document.getElementById("edit-person").style.display = "block";
       document.getElementById("edit-id-field").value = person.Id;
       document.getElementById("edit-name-field").value = person.Name;
@@ -37,12 +36,10 @@ export default {
         Email: document.getElementById("edit-email-field").value,
         Id: parseInt(document.getElementById("edit-id-field").value),
       };
-      axios
-        .put("http://localhost:8090/updatePerson", person)
-        .catch((error) => {
-          console.log(error);
-          document.getElementById("error-msg").style.display = "block";
-        });
+      axios.put("http://localhost:8090/updatePerson", person).catch((error) => {
+        console.log(error);
+        document.getElementById("error-msg").style.display = "block";
+      });
     },
     addUser() {
       var person = {
@@ -64,10 +61,10 @@ export default {
     delUser(pid) {
       console.log(pid);
       var person = {
-        Id: pid
+        Id: pid,
       };
       axios
-        .delete("http://localhost:8090/deletePerson", {data: person})
+        .delete("http://localhost:8090/deletePerson", { data: person })
         .then((response) => {
           console.log(response);
           this.getPeople();
@@ -96,7 +93,6 @@ export default {
 
 <template>
   <div>
-    
     <div id="error-msg">
       <h3>We're sorry, something went wrong, please try again!</h3>
     </div>
@@ -109,64 +105,62 @@ export default {
         name="playername"
         maxlength="10"
       /><br />
-           <label for="nameField">Age:</label>
+      <label for="nameField">Age:</label>
       <input
         type="number"
         id="ageField"
         name="playerage"
-        min="0" max="150"
+        min="0"
+        max="150"
       /><br />
-           <label for="emailField">Email:</label>
-      <input
-        type="email"
-        id="emailField"
-        name="playeremail"
-      /><br /><br />
+      <label for="emailField">Email:</label>
+      <input type="email" id="emailField" name="playeremail" /><br /><br />
       <input type="submit" value="Submit" />
     </form>
     <div class="table-div">
-    <table class="player-table">
-      <tr>
-        <th></th>
-        <th>Player Age</th>
-        <th>Player Name</th>
-        <th>Player Email</th>
-        <th>Edit</th>
-      </tr>
-      <tr v-for="ps in people" :key="ps.Id">
-        <td @click="delUser(ps.Id)">X</td>
-        <td>{{ps.Age}}</td>
-        <td>{{ps.Name}}</td>
-        <td>{{ps.Email}}</td>
-        <td @click="setEditFields(ps)">-></td>
-    </tr>
-    </table>
+      <table class="player-table">
+        <tr>
+          <th></th>
+          <th>Player Age</th>
+          <th>Player Name</th>
+          <th>Player Email</th>
+          <th>Edit</th>
+        </tr>
+        <tr v-for="ps in people" :key="ps.Id">
+          <td @click="delUser(ps.Id)">X</td>
+          <td>{{ ps.Age }}</td>
+          <td>{{ ps.Name }}</td>
+          <td>{{ ps.Email }}</td>
+          <td @click="setEditFields(ps)">-></td>
+        </tr>
+      </table>
     </div>
     <div id="edit-person">
-          <form id="edit-form" @submit="validateForm(updateUser())">
-            <input type="hidden" id="edit-id-field"/>
-      <label for="edit-name-field">Name:</label>
-      <input
-        type="text"
-        id="edit-name-field"
-        name="playername"
-        maxlength="10"
-      /><br />
-           <label for="edit-age-field">Age:</label>
-      <input
-        type="number"
-        id="edit-age-field"
-        name="playerage"
-        min="0" max="150"
-      /><br />
-           <label for="edit-email-field">Email:</label>
-      <input
-        type="email"
-        id="edit-email-field"
-        name="playeremail"
-      /><br /><br />
-      <input type="submit" value="Submit"/>
-    </form>
+      <form id="edit-form" @submit="validateForm(updateUser())">
+        <input type="hidden" id="edit-id-field" />
+        <label for="edit-name-field">Name:</label>
+        <input
+          type="text"
+          id="edit-name-field"
+          name="playername"
+          maxlength="10"
+        /><br />
+        <label for="edit-age-field">Age:</label>
+        <input
+          type="number"
+          id="edit-age-field"
+          name="playerage"
+          min="0"
+          max="150"
+        /><br />
+        <label for="edit-email-field">Email:</label>
+        <input
+          type="email"
+          id="edit-email-field"
+          name="playeremail"
+        /><br /><br />
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   </div>
 </template>
@@ -180,37 +174,37 @@ export default {
 }
 
 #edit-person {
-  display: none; 
-  padding: 40px
+  display: none;
+  padding: 40px;
 }
 
 #error-msg {
-  display: none; 
+  display: none;
   text-align: center;
   color: red;
 }
 
-.roomcode-div{
-  display: flex; 
-  align-items: center; 
+.roomcode-div {
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.table-div{
-  display: flex; 
+.table-div {
+  display: flex;
   justify-content: space-evenly;
 }
 
-.player-table{
-  width: 85%; 
+.player-table {
+  width: 85%;
   text-align: center;
 }
-.player-table th{
-   font-weight: bold;
-   text-align: center;
+.player-table th {
+  font-weight: bold;
+  text-align: center;
 }
 
-.player-table td{
-   padding: 0 15px;
+.player-table td {
+  padding: 0 15px;
 }
 </style>
