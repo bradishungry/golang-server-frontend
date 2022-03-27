@@ -1,9 +1,9 @@
 <script setup>
-import CrudForm from "@/components/CrudForm.vue";
+import RoomCode from "@/components/RoomCode.vue";
 </script>
 
 <template>
   <main>
-    <CrudForm />
+    <RoomCode />
   </main>
 </template>
